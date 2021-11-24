@@ -1,0 +1,68 @@
+body{
+    background-color:antiquewhite;
+    font-family: 'Alfa Slab One';
+    margin: 0px;
+}
+
+.main {
+    display:flex;
+    flex-direction: column;
+    background-color: cadetblue;
+}
+
+.scorePanel{
+    font-size: 48px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: cornflowerblue;
+    padding: 20px 200px;
+}
+
+.info{
+    background-color:cornflowerblue;
+    display:flex;
+    justify-content: center;
+    font-size: 48px;
+    padding: 20px 200px;
+    align-items: center;
+}
+
+.answer{
+    background-color:cornflowerblue;
+    display:flex;
+    justify-content: center;
+    gap: 150px;
+    font-size: 48px;
+    padding: 20px 200px;
+    align-items: center;
+}
+
+.score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+button {
+    padding: 20px 40px;
+    font-family: 'Alfa Slab One';
+    font-size: 48px;
+    background-color:darkgray;
+    border-radius:50px;
+    border: 5px solid black;
+    text-shadow: 1px 2px black;
+}
+
+#start{
+    background-color:cornflowerblue;
+    display:flex;
+    justify-content: center;
+    padding: 50px 100px;
+    align-items: center;
+}
+#start button {
+    color:green;
+    font-size: 24px;
+}

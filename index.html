@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href = "style/style.css" rel = "stylesheet">
+</head>
+<body>
+
+
+    <div class="main">
+        <div class = "scorePanel">
+            <div class = "score">
+                You
+                <div id = "playerScore">
+
+                </div>
+            </div>
+            <div class = "score">
+                Computer
+                <div id = "computerScore">
+
+                </div>
+            </div>
+            
+        </div>
+
+        <div class = "info">
+            <div id = "gameStatus">
+                Game Status
+            </div>
+
+        </div>
+
+        <div class = "answer">
+            <div class = "rock">
+                <button id = "rock" onclick="playRound('rock')">✊</button>
+            </div>
+            <div class = "scissors">
+                <button id = "scissors" onclick="playRound('scissors')">✂</button>
+            </div>
+            <div class = "paper">
+                <button id = "paper" onclick="playRound('paper')">✋</button>
+            </div>
+        </div>
+        <div id="start">
+            <button onclick="startAgain('')">START AGAIN</button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        document.getElementById("gameStatus").innerHTML = ("Choose!");
+        // TAKE IT BACK IN THE LOOP
+        document.getElementById("playerScore").innerHTML = playerScore;
+        document.getElementById("computerScore").innerHTML = computerScore;
+        // TAKE IT BACK IN THE LOOP
+
+        function startAgain(){
+            playerScore = 0;
+            computerScore = 0;
+            score();
+            return document.getElementById("gameStatus").innerHTML = ("OK Let's play AGAIN!");
+        }
+
+        function computerPlay(){
+            let answer = 0;
+            let random = Math.floor(Math.random() * 3);
+            if (random === 0) {
+                answer = "Rock";
+            }
+            if (random === 1){
+                answer = "Paper";
+            }
+            if (random === 2){
+                answer = "Scissors";
+            }
+            return answer;
+        }
+
+        function score(){
+        document.getElementById("playerScore").innerHTML = playerScore;
+        document.getElementById("computerScore").innerHTML = computerScore;
+        if (playerScore === 5) {
+                    alert("Congratulations!!! You win!!!!", "You: " ,playerScore ,"Computer: ",computerScore );
+                    startAgain();
+                }
+        if (computerScore === 5){
+                    alert("You lost to computer, its Ok :( ", "You: " ,playerScore ,"Computer: ",computerScore );
+                    startAgain();
+                }
+        }
+
+        function playRound(playerSelection, computerSelection = computerPlay()){
+            let a = playerSelection.toUpperCase();
+            let b = computerSelection.toUpperCase();
+        
+            if (a === "ROCK" && b === "PAPER")
+            {
+                computerScore++;
+                score();
+                return document.getElementById("gameStatus").innerHTML = ("Paper beats Rock - You  lose!");
+                // return console.log("Paper beats Rock - You  lose!")
+            }
+            if (a === "ROCK" && b === "SCISSORS"){
+                playerScore++;
+                score();
+                return document.getElementById("gameStatus").innerHTML = ("Rock beats Scissors - You win!");
+                // return console.log("Rock beats Scissors - You win!")
+            }
+            if (a === "PAPER" && b === "ROCK"){
+                playerScore++;
+                score();
+                return document.getElementById("gameStatus").innerHTML = ("Paper beats Rock - You win!");
+                // return console.log("Paper beats Rock - You win!")
+            }
+            if (a === "PAPER" && b === "SCISSORS"){
+                computerScore++;
+                score();
+                return document.getElementById("gameStatus").innerHTML = ("Scissors beats Paper - You lose!");
+                // return console.log("Scissors beats Paper - You lose!")
+            }
+            if (a === "SCISSORS" && b === "ROCK"){
+                computerScore++;
+                score();
+                return document.getElementById("gameStatus").innerHTML = ("Rock beats Scissors - You lose!");
+                // return console.log("Rock beats Scissors - You lose!")
+            }
+            if (a === "SCISSORS" && b === "PAPER"){
+                playerScore++;
+                score();
+                return document.getElementById("gameStatus").innerHTML = ("Scissors beats Paper - You win!");
+                // return console.log("Scissors beats Paper - You win!")
+            }
+            if (a === b){
+                score();
+                return document.getElementById("gameStatus").innerHTML = ("Draw!!!");
+                // return console.log("Draw!!!")
+            }
+
+        }
+    </script>
+
+
+
+
+</body>
+</html>
